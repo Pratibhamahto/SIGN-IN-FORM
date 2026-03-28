@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K7HJJMRD');</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7WD4KNTBS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C7WD4KNTBS');
+</script>
+  <!-- Event snippet for Add to basket (3) conversion page -->
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMIÈRE — Fine Jewellery</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D49A;
+    --cream: #FAF7F2;
+    --dark: #1A1410;
+    --mid: #3D3025;
+    --text: #5C4D3A;
+    --border: rgba(201,168,76,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ===================== NAV ===================== */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 20px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(250,247,242,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 300; letter-spacing: 0.25em;
+    color: var(--dark); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    transition: color .2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0); transition: transform .25s ease;
+    transform-origin: left;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-actions { display: flex; gap: 16px; align-items: center; }
+
+  /* ---- Search toggle (CSS-only) ---- */
+  #search-toggle { display: none; }
+  .search-label {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text); cursor: pointer;
+    transition: color .2s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .search-label:hover { color: var(--gold); }
+  .search-icon { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  .search-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(26,20,16,0.96);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity .35s ease;
+  }
+  #search-toggle:checked ~ .search-overlay {
+    opacity: 1; pointer-events: all;
+  }
+  .search-overlay-inner { width: 600px; max-width: 90vw; position: relative; }
+  .search-close-label {
+    position: absolute; top: -60px; right: 0;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); cursor: pointer;
+    transition: color .2s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .search-close-label:hover { color: var(--gold); }
+  .search-close-label::before { content: '✕'; font-size: 16px; }
+  .search-input-wrap {
+    border-bottom: 1px solid rgba(201,168,76,0.4);
+    display: flex; align-items: center; gap: 16px;
+    padding-bottom: 16px;
+  }
+  .search-input-wrap svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
+  .search-field {
+    flex: 1; background: transparent; border: none; outline: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 300; color: #fff;
+    letter-spacing: 0.05em;
+  }
+  .search-field::placeholder { color: rgba(255,255,255,0.25); }
+  .search-hint { margin-top: 24px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+  .search-hint span { color: var(--gold); margin: 0 6px; }
+
+  /* ---- Wishlist toggle ---- */
+  #wishlist-toggle { display: none; }
+  .wishlist-label {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text); cursor: pointer; transition: color .2s;
+    position: relative;
+  }
+  .wishlist-label:hover { color: var(--gold); }
+  .wishlist-count {
+    position: absolute; top: -8px; right: -12px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--gold); color: var(--dark);
+    font-size: 9px; font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity .2s;
+  }
+
+  .wishlist-panel {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 150;
+    width: 420px; background: var(--cream);
+    border-left: 1px solid var(--border);
+    transform: translateX(100%);
+    transition: transform .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow-y: auto;
+    padding: 40px 36px;
+  }
+  #wishlist-toggle:checked ~ .wishlist-panel {
+    transform: translateX(0);
+  }
+  .wishlist-overlay {
+    position: fixed; inset: 0; z-index: 149;
+    background: rgba(26,20,16,0.5);
+    opacity: 0; pointer-events: none;
+    transition: opacity .4s;
+  }
+  #wishlist-toggle:checked ~ .wishlist-overlay {
+    opacity: 1; pointer-events: all;
+  }
+  .panel-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .panel-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; letter-spacing: 0.05em;
+  }
+  .panel-close {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text); cursor: pointer; transition: color .2s;
+  }
+  .panel-close:hover { color: var(--gold); }
+  .wishlist-empty {
+    text-align: center; padding: 60px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 300; color: var(--text);
+    font-style: italic;
+  }
+  .wishlist-empty::before {
+    content: '♡';
+    display: block; font-size: 48px; color: var(--gold-light);
+    margin-bottom: 16px; font-style: normal;
+  }
+
+  /* ---- Cart toggle ---- */
+  #cart-toggle { display: none; }
+  .cart-label {
+    background: var(--dark); color: var(--cream);
+    padding: 10px 24px;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: background .2s;
+    white-space: nowrap;
+  }
+  .cart-label:hover { background: var(--gold); color: var(--dark); }
+  #cart-toggle:checked ~ .cart-label { background: var(--gold); color: var(--dark); }
+
+  .cart-panel {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 150;
+    width: 460px; background: var(--cream);
+    border-left: 1px solid var(--border);
+    transform: translateX(100%);
+    transition: transform .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex; flex-direction: column;
+  }
+  #cart-toggle:checked ~ .cart-panel {
+    transform: translateX(0);
+  }
+  .cart-overlay {
+    position: fixed; inset: 0; z-index: 149;
+    background: rgba(26,20,16,0.5);
+    opacity: 0; pointer-events: none;
+    transition: opacity .4s;
+  }
+  #cart-toggle:checked ~ .cart-overlay {
+    opacity: 1; pointer-events: all;
+  }
+
+  .cart-body { flex: 1; overflow-y: auto; padding: 40px 36px; }
+  .cart-empty {
+    text-align: center; padding: 80px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 300; color: var(--text);
+    font-style: italic;
+  }
+  .cart-empty::before {
+    content: '◈';
+    display: block; font-size: 48px; color: var(--gold-light);
+    margin-bottom: 16px; font-style: normal;
+  }
+  .cart-footer {
+    padding: 28px 36px;
+    border-top: 1px solid var(--border);
+    background: var(--cream);
+  }
+  .cart-total {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 300;
+  }
+  .cart-total span { color: var(--gold); }
+
+  /* ---- Mobile menu toggle ---- */
+  #menu-toggle { display: none; }
+  .menu-hamburger {
+    display: none;
+    flex-direction: column; gap: 5px; cursor: pointer;
+    padding: 4px;
+  }
+  .menu-hamburger span {
+    display: block; width: 24px; height: 1.5px;
+    background: var(--dark); transition: all .3s;
+  }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+  }
+  .hero-tag {
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 28px;
+    display: flex; align-items: center; gap: 14px;
+    animation: fadeSlideUp .8s ease both;
+  }
+  .hero-tag::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 6vw, 86px);
+    font-weight: 300; line-height: 1.05;
+    color: var(--dark); margin-bottom: 28px;
+    animation: fadeSlideUp .8s .1s ease both;
+  }
+  .hero-title em { font-style: italic; color: var(--gold); }
+
+  .hero-sub {
+    font-size: 13px; font-weight: 300; letter-spacing: 0.08em;
+    color: var(--text); line-height: 1.9;
+    max-width: 380px; margin-bottom: 50px;
+    animation: fadeSlideUp .8s .2s ease both;
+  }
+  .hero-cta {
+    display: flex; gap: 20px; align-items: center;
+    animation: fadeSlideUp .8s .3s ease both;
+  }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+    background: var(--mid);
+  }
+  .hero-img-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #2C1F10 0%, #4A3520 40%, #1A1410 100%);
+  }
+  .hero-ornament {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ornament-ring {
+    width: 380px; height: 380px; border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.2);
+    position: absolute; animation: slowRotate 30s linear infinite;
+  }
+  .ornament-ring:nth-child(2) {
+    width: 280px; height: 280px;
+    border-color: rgba(201,168,76,0.35);
+    animation-direction: reverse; animation-duration: 20s;
+  }
+  .ornament-ring:nth-child(3) {
+    width: 460px; height: 460px;
+    border-color: rgba(201,168,76,0.1);
+  }
+  .diamond-icon { width: 120px; height: 120px; position: relative; z-index: 2; animation: glow 4s ease-in-out infinite; }
+
+  @keyframes glow {
+    0%,100% { filter: drop-shadow(0 0 8px rgba(201,168,76,0.3)); }
+    50% { filter: drop-shadow(0 0 24px rgba(201,168,76,0.7)); }
+  }
+
+  .hero-badge {
+    position: absolute; bottom: 50px; left: 40px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid var(--border);
+    padding: 20px 28px;
+    backdrop-filter: blur(8px);
+    animation: fadeSlideUp .8s .5s ease both;
+  }
+  .hero-badge p { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); }
+  .hero-badge strong { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: #fff; display: block; margin-top: 4px; }
+
+  /* ===================== BUTTONS ===================== */
+  .btn-primary {
+    background: var(--dark); color: var(--cream);
+    padding: 16px 40px;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    transition: background .2s, transform .2s;
+    text-decoration: none; display: inline-block;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--gold); color: var(--dark); transform: translateY(-2px); }
+
+  .btn-ghost {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+    cursor: pointer;
+  }
+  .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+  .btn-gold {
+    background: var(--gold); color: var(--dark);
+    padding: 16px 40px;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block; text-decoration: none;
+    transition: opacity .2s, transform .2s;
+    cursor: pointer;
+  }
+  .btn-gold:hover { opacity: 0.88; transform: translateY(-2px); }
+
+  /* ===================== MARQUEE ===================== */
+  .marquee-wrap {
+    background: var(--dark);
+    padding: 18px 0;
+    overflow: hidden;
+  }
+  .marquee {
+    display: flex; gap: 0;
+    animation: marquee 22s linear infinite;
+    white-space: nowrap;
+  }
+  .marquee span {
+    font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); padding: 0 40px; flex-shrink: 0;
+  }
+  .marquee span.sep { color: rgba(201,168,76,0.3); }
+  .marquee-wrap:hover .marquee { animation-play-state: paused; }
+
+  /* ===================== SECTIONS ===================== */
+  .section { padding: 100px 80px; }
+  .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+  .section-label {
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; max-width: 50px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 54px); font-weight: 300; line-height: 1.15;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* CSS scroll animations */
+  @supports (animation-timeline: scroll()) {
+    .fade-up {
+      animation: fadeSlideUp linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+  }
+  /* Fallback for non-supporting browsers */
+  @supports not (animation-timeline: scroll()) {
+    .fade-up { opacity: 1; transform: none; }
+  }
+
+  /* ===================== COLLECTIONS ===================== */
+  .collection-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 340px 340px;
+    gap: 16px;
+  }
+  .col-card {
+    position: relative; overflow: hidden;
+    cursor: pointer;
+  }
+  .col-card:first-child { grid-row: 1 / 3; }
+  .col-card-bg {
+    position: absolute; inset: 0;
+    transition: transform .6s ease;
+  }
+  .col-card:hover .col-card-bg { transform: scale(1.04); }
+  .c1 { background: linear-gradient(160deg, #2A1E0E 0%, #4D3520 50%, #1F1510 100%); }
+  .c2 { background: linear-gradient(160deg, #1A2535 0%, #2A3D55 50%, #111C2A 100%); }
+  .c3 { background: linear-gradient(160deg, #1E2A1A 0%, #2D4025 50%, #121A10 100%); }
+  .c4 { background: linear-gradient(160deg, #2A1A1A 0%, #402525 50%, #1A1010 100%); }
+  .c5 { background: linear-gradient(160deg, #252520 0%, #383830 50%, #181815 100%); }
+
+  .col-card-gem {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -60%);
+    opacity: 0.55;
+    transition: opacity .4s, transform .4s;
+  }
+  .col-card:hover .col-card-gem { opacity: 0.85; transform: translate(-50%, -65%); }
+
+  .col-card-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px 30px;
+    background: linear-gradient(to top, rgba(10,6,2,0.85) 0%, transparent 100%);
+  }
+  .col-card-tag { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .col-card-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: #fff; margin-bottom: 4px; }
+  .col-card:first-child .col-card-name { font-size: 36px; }
+  .col-card-price { font-size: 12px; letter-spacing: 0.08em; color: var(--gold-light); }
+
+  /* Collection hover overlay — CSS only */
+  .col-card-overlay {
+    position: absolute; inset: 0;
+    background: rgba(201,168,76,0.08);
+    opacity: 0;
+    transition: opacity .3s;
+    display: flex; align-items: flex-start; justify-content: flex-end;
+    padding: 20px;
+  }
+  .col-card:hover .col-card-overlay { opacity: 1; }
+  .col-overlay-btn {
+    font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); background: rgba(26,20,16,0.85);
+    padding: 8px 16px; border: 1px solid var(--border);
+    white-space: nowrap;
+    text-decoration: none; display: inline-block;
+  }
+
+  /* ===================== PRODUCTS ===================== */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  .product-card { cursor: pointer; }
+
+  .product-img {
+    aspect-ratio: 3/4;
+    position: relative; overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .product-img-bg {
+    position: absolute; inset: 0;
+    transition: transform .5s ease;
+  }
+  .product-card:hover .product-img-bg { transform: scale(1.05); }
+  .product-img-bg.p1 { background: linear-gradient(145deg, #1C1810, #3A2E1A, #1C1810); }
+  .product-img-bg.p2 { background: linear-gradient(145deg, #181A1C, #2A303A, #181A1C); }
+  .product-img-bg.p3 { background: linear-gradient(145deg, #1C181C, #30203A, #1C181C); }
+  .product-img-bg.p4 { background: linear-gradient(145deg, #181C18, #20301E, #181C18); }
+
+  .product-gem-wrap {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .product-quick {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: var(--dark);
+    padding: 14px;
+    text-align: center;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+    transform: translateY(100%);
+    transition: transform .3s ease;
+    text-decoration: none; display: block;
+  }
+  .product-card:hover .product-quick { transform: translateY(0); }
+
+  .product-tag { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--dark); margin-bottom: 6px; }
+  .product-price { font-size: 13px; letter-spacing: 0.06em; color: var(--text); }
+  .product-price s { color: var(--gold-light); margin-right: 8px; opacity: .6; }
+
+  /* Wishlist heart on product */
+  .product-wish {
+    position: absolute; top: 14px; right: 14px;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(250,247,242,0.9); border-radius: 50%;
+    font-size: 16px;
+    opacity: 0; transition: opacity .3s;
+    cursor: pointer;
+  }
+  .product-card:hover .product-wish { opacity: 1; }
+  .product-wish input[type="checkbox"] { display: none; }
+  .wish-icon { transition: color .2s; }
+  .product-wish input:checked ~ .wish-icon { color: #e74c3c; }
+
+  /* ===================== QUICK VIEW MODAL ===================== */
+  .modal-toggle { display: none; }
+  .modal-backdrop {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(26,20,16,0.85);
+    opacity: 0; pointer-events: none;
+    transition: opacity .35s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .modal-toggle:checked ~ .modal-backdrop {
+    opacity: 1; pointer-events: all;
+  }
+  .modal-box {
+    background: var(--cream);
+    width: 860px; max-width: 92vw;
+    max-height: 85vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    transform: scale(0.92) translateY(20px);
+    transition: transform .35s ease;
+  }
+  .modal-toggle:checked ~ .modal-backdrop .modal-box {
+    transform: scale(1) translateY(0);
+  }
+  .modal-img {
+    position: relative; overflow: hidden;
+    min-height: 420px;
+  }
+  .modal-info {
+    padding: 50px 44px;
+    overflow-y: auto;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .modal-close-label {
+    position: absolute; top: 20px; right: 20px;
+    width: 36px; height: 36px;
+    background: rgba(26,20,16,0.7);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 16px;
+    cursor: pointer; z-index: 10;
+    transition: background .2s;
+  }
+  .modal-close-label:hover { background: var(--gold); color: var(--dark); }
+  .modal-tag { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .modal-name { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--dark); margin-bottom: 8px; }
+  .modal-price { font-size: 20px; letter-spacing: 0.05em; color: var(--text); margin-bottom: 24px; font-family: 'Cormorant Garamond', serif; }
+  .modal-price s { color: var(--gold-light); margin-right: 8px; opacity: .6; font-size: 16px; }
+  .modal-desc { font-size: 13px; font-weight: 300; color: var(--text); line-height: 1.8; margin-bottom: 28px; }
+  .modal-specs { list-style: none; margin-bottom: 32px; }
+  .modal-specs li {
+    display: flex; gap: 12px;
+    font-size: 11px; letter-spacing: 0.08em; color: var(--text);
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+  }
+  .modal-specs li strong { min-width: 120px; color: var(--dark); font-weight: 500; text-transform: uppercase; font-size: 9px; letter-spacing: 0.2em; }
+  .modal-size-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dark); margin-bottom: 12px; }
+  .size-options { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+  .size-radio { display: none; }
+  .size-btn {
+    width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border);
+    font-size: 11px; letter-spacing: 0.05em; color: var(--text);
+    cursor: pointer; transition: all .2s;
+  }
+  .size-radio:checked + .size-btn {
+    background: var(--dark); color: var(--cream); border-color: var(--dark);
+  }
+  .size-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ===================== BANNER ===================== */
+  .banner {
+    background: var(--dark);
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: 'LUMIÈRE';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 220px; font-weight: 300;
+    color: rgba(201,168,76,0.04);
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 0.1em;
+    animation: drift 20s ease-in-out infinite alternate;
+  }
+  @keyframes drift {
+    from { transform: translate(-52%,-50%); }
+    to { transform: translate(-48%,-50%); }
+  }
+  .banner-text { position: relative; z-index: 1; }
+  .banner-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .banner-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 4vw, 60px); font-weight: 300;
+    color: #fff; line-height: 1.1; margin-bottom: 24px;
+  }
+  .banner-title em { font-style: italic; color: var(--gold); }
+  .banner-desc { font-size: 13px; font-weight: 300; letter-spacing: 0.06em; color: rgba(255,255,255,0.5); line-height: 1.9; margin-bottom: 40px; }
+
+  .banner-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; position: relative; z-index: 1;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 36px 30px;
+    transition: background .3s, border-color .3s;
+  }
+  .stat-box:hover { background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.3); }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 300; color: var(--gold);
+    line-height: 1; margin-bottom: 10px;
+  }
+  .stat-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  /* ===================== TESTIMONIALS ===================== */
+  .testimonials { background: #F5F0E8; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+  .testi-card {
+    background: var(--cream);
+    padding: 40px 36px;
+    border-bottom: 2px solid var(--gold);
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,20,16,0.08); }
+  .testi-stars { color: var(--gold); font-size: 14px; letter-spacing: 4px; margin-bottom: 20px; }
+  .testi-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px; font-style: italic; font-weight: 300;
+    line-height: 1.6; color: var(--dark); margin-bottom: 28px;
+  }
+  .testi-author { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); }
+  .testi-location { font-size: 10px; letter-spacing: 0.12em; color: var(--gold); margin-top: 4px; }
+
+  /* ===================== NEWSLETTER ===================== */
+  .newsletter {
+    padding: 100px 80px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .newsletter-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 300; margin-bottom: 16px; }
+  .newsletter-title em { font-style: italic; color: var(--gold); }
+  .newsletter-sub { font-size: 13px; color: var(--text); letter-spacing: 0.06em; margin-bottom: 44px; }
+
+  /* CSS-only form states */
+  .newsletter-form {
+    display: flex; max-width: 500px; margin: 0 auto;
+    border: 1px solid var(--border);
+    transition: border-color .2s;
+    position: relative;
+  }
+  .newsletter-form:focus-within { border-color: var(--gold); }
+  .newsletter-form input {
+    flex: 1; padding: 16px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; letter-spacing: 0.08em;
+    border: none; background: transparent;
+    color: var(--dark); outline: none;
+  }
+  .newsletter-form input::placeholder { color: rgba(92,77,58,0.5); }
+  .newsletter-form button {
+    background: var(--dark); color: var(--cream);
+    padding: 16px 32px;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    border: none; cursor: pointer;
+    transition: background .2s;
+  }
+  .newsletter-form button:hover { background: var(--gold); color: var(--dark); }
+  .newsletter-form button:active { transform: scale(0.98); }
+
+  /* Success state via :valid */
+  .newsletter-form input:valid + button { background: #2A5C3F; }
+  .newsletter-form input:valid + button::after { content: ' ✓'; }
+
+  /* ===================== FOOTER ===================== */
+  footer {
+    background: var(--dark);
+    padding: 80px 80px 40px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px; margin-bottom: 60px;
+  }
+  .footer-brand-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; letter-spacing: 0.2em;
+    color: #fff; margin-bottom: 18px;
+  }
+  .footer-brand-logo span { color: var(--gold); }
+  .footer-desc { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 260px; }
+  .footer-heading { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 12px; }
+  .footer-links a {
+    font-size: 12px; color: rgba(255,255,255,0.45); text-decoration: none;
+    letter-spacing: 0.06em; transition: color .2s, padding-left .2s;
+    display: inline-block;
+  }
+  .footer-links a:hover { color: var(--gold); padding-left: 6px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 30px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.08em; }
+  .footer-social { display: flex; gap: 20px; }
+  .footer-social a {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); text-decoration: none; transition: color .2s;
+    position: relative;
+  }
+  .footer-social a::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0); transition: transform .25s;
+  }
+  .footer-social a:hover { color: var(--gold); }
+  .footer-social a:hover::after { transform: scaleX(1); }
+
+  /* ===================== KEYFRAMES ===================== */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slowRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ===================== ACCORDION (FAQ/Details) ===================== */
+  details {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  details summary {
+    padding: 16px 0;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--dark); cursor: pointer;
+    list-style: none;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: color .2s;
+  }
+  details summary:hover { color: var(--gold); }
+  details summary::after { content: '+'; font-size: 18px; color: var(--gold); transition: transform .3s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { font-size: 13px; font-weight: 300; color: var(--text); line-height: 1.8; padding-bottom: 16px; }
+
+  /* ===================== TABS (Collections nav) ===================== */
+  .tab-radio { display: none; }
+  .tab-labels {
+    display: flex; gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .tab-label {
+    padding: 14px 28px;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--text); cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color .2s, border-color .2s;
+  }
+  .tab-label:hover { color: var(--gold); }
+  #tab-rings:checked ~ .tab-labels label[for="tab-rings"],
+  #tab-necklaces:checked ~ .tab-labels label[for="tab-necklaces"],
+  #tab-earrings:checked ~ .tab-labels label[for="tab-earrings"],
+  #tab-bracelets:checked ~ .tab-labels label[for="tab-bracelets"] {
+    color: var(--gold); border-bottom-color: var(--gold);
+  }
+  .tab-content { display: none; }
+  #tab-rings:checked ~ .tab-content.rings,
+  #tab-necklaces:checked ~ .tab-content.necklaces,
+  #tab-earrings:checked ~ .tab-content.earrings,
+  #tab-bracelets:checked ~ .tab-content.bracelets { display: block; }
+
+  /* Product filter tabs */
+  .filter-row {
+    display: flex; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;
+  }
+  .filter-radio { display: none; }
+  .filter-btn {
+    padding: 9px 22px;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text); border: 1px solid var(--border);
+    cursor: pointer; transition: all .2s;
+  }
+  .filter-btn:hover { color: var(--gold); border-color: var(--gold); }
+  .filter-radio:checked + .filter-btn { background: var(--dark); color: var(--cream); border-color: var(--dark); }
+
+  /* ===================== SCROLL TO TOP ===================== */
+  #scroll-top-anchor { position: absolute; top: 0; }
+  .scroll-top {
+    position: fixed; bottom: 36px; right: 36px; z-index: 90;
+    width: 48px; height: 48px;
+    background: var(--dark); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); text-decoration: none;
+    font-size: 18px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s, background .2s;
+    /* Show after scrolling — approximate using animation */
+    animation: showScrollTop linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 400px 500px;
+  }
+  @keyframes showScrollTop {
+    from { opacity: 0; pointer-events: none; }
+    to { opacity: 1; pointer-events: all; }
+  }
+  .scroll-top:hover { background: var(--gold); color: var(--dark); }
+
+  /* ===================== NOTIFICATION TOAST ===================== */
+  /* CSS-only "add to cart" notification via :target */
+  .toast {
+    position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%) translateY(80px);
+    z-index: 400;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    padding: 16px 32px;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+    transition: transform .4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .4s;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast:target {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+    animation: hideToast 3s 1s ease forwards;
+  }
+  @keyframes hideToast {
+    to { opacity: 0; transform: translateX(-50%) translateY(80px); }
+  }
+
+  /* ===================== LOADING SHIMMER ===================== */
+  .shimmer {
+    background: linear-gradient(90deg, #f0ebe3 25%, #faf7f2 50%, #f0ebe3 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  @keyframes shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 1024px) {
+    nav { padding: 20px 32px; }
+    .nav-links { display: none; }
+    .menu-hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 50vw; }
+    .hero-left { padding: 60px 40px; }
+    .section { padding: 70px 40px; }
+    .collection-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .col-card:first-child { grid-row: auto; grid-column: 1 / 3; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .banner { grid-template-columns: 1fr; gap: 40px; padding: 70px 40px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    footer { padding: 60px 40px 32px; }
+    .newsletter { padding: 70px 40px; }
+    .modal-box { grid-template-columns: 1fr; }
+    .modal-img { min-height: 280px; }
+    .cart-panel, .wishlist-panel { width: 100%; max-width: 460px; }
+    .banner::before { font-size: 120px; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .hero-left { padding: 48px 20px; }
+    .section { padding: 56px 20px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .collection-grid { grid-template-columns: 1fr; }
+    .col-card:first-child { grid-column: auto; }
+    .footer-grid { grid-template-columns: 1fr; }
+    footer { padding: 48px 20px 24px; }
+    .newsletter { padding: 56px 20px; }
+    .banner { padding: 56px 20px; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form button { padding: 14px; }
+    .banner-stats { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Mobile nav drawer */
+  #menu-toggle:checked ~ .mobile-nav {
+    transform: translateX(0);
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed; top: 0; left: 0; bottom: 0; z-index: 200;
+    width: 280px; background: var(--cream);
+    border-right: 1px solid var(--border);
+    transform: translateX(-100%);
+    transition: transform .4s ease;
+    padding: 80px 36px 40px;
+    flex-direction: column; gap: 0;
+  }
+  @media (max-width: 1024px) { .mobile-nav { display: flex; } }
+  .mobile-nav a {
+    display: block; padding: 16px 0;
+    font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--dark); text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: color .2s, padding-left .2s;
+  }
+  .mobile-nav a:hover { color: var(--gold); padding-left: 8px; }
+  .mobile-nav-close {
+    position: absolute; top: 24px; right: 24px;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text); cursor: pointer;
+  }
+  .mobile-overlay {
+    position: fixed; inset: 0; z-index: 199;
+    background: rgba(26,20,16,0.5);
+    opacity: 0; pointer-events: none;
+    transition: opacity .4s;
+  }
+  #menu-toggle:checked ~ .mobile-overlay { opacity: 1; pointer-events: all; }
+</style>
+</head>
+<body>
+<<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7HJJMRD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Hidden anchors for toast and scroll top -->
+<div id="scroll-top-anchor"></div>
+<div id="toast-added" class="toast">✦ Added to your collection</div>
+
+<!-- ==================== GLOBAL STATE INPUTS ==================== -->
+<input type="checkbox" id="search-toggle">
+<input type="checkbox" id="wishlist-toggle">
+<input type="checkbox" id="cart-toggle">
+<input type="checkbox" id="menu-toggle">
+
+<!-- Modal toggles for each product -->
+<input type="checkbox" id="modal-1" class="modal-toggle">
+<input type="checkbox" id="modal-2" class="modal-toggle">
+<input type="checkbox" id="modal-3" class="modal-toggle">
+<input type="checkbox" id="modal-4" class="modal-toggle">
+
+<!-- Tab state for products -->
+<input type="radio" name="filter" id="tab-rings" class="filter-radio" checked>
+<input type="radio" name="filter" id="tab-necklaces" class="filter-radio">
+<input type="radio" name="filter" id="tab-earrings" class="filter-radio">
+<input type="radio" name="filter" id="tab-bracelets" class="filter-radio">
+
+<!-- Size selectors per modal -->
+<input type="radio" name="size-1" id="size-1-5" class="size-radio">
+<input type="radio" name="size-1" id="size-1-55" class="size-radio" checked>
+<input type="radio" name="size-1" id="size-1-6" class="size-radio">
+<input type="radio" name="size-1" id="size-1-65" class="size-radio">
+<input type="radio" name="size-1" id="size-1-7" class="size-radio">
+
+<!-- ==================== SEARCH OVERLAY ==================== -->
+<div class="search-overlay">
+  <div class="search-overlay-inner">
+    <label for="search-toggle" class="search-close-label">Close</label>
+    <div class="search-input-wrap">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-field" type="search" placeholder="Search pieces…" autofocus>
+    </div>
+    <p class="search-hint">Try <span>Solitaire</span> · <span>Emerald</span> · <span>Bracelet</span> · <span>Bespoke</span></p>
+  </div>
+</div>
+
+<!-- ==================== WISHLIST PANEL ==================== -->
+<label for="wishlist-toggle" class="wishlist-overlay"></label>
+<div class="wishlist-panel">
+  <div class="panel-header">
+    <div class="panel-title">Wishlist</div>
+    <label for="wishlist-toggle" class="panel-close">Close ✕</label>
+  </div>
+  <div class="wishlist-empty">Your wishlist awaits<br><small style="font-size:13px;opacity:.6;font-family:Montserrat,sans-serif;font-style:normal;">Save pieces you adore</small></div>
+</div>
+
+<!-- ==================== CART PANEL ==================== -->
+<label for="cart-toggle" class="cart-overlay"></label>
+<div class="cart-panel">
+  <div class="cart-body">
+    <div class="panel-header">
+      <div class="panel-title">Your Cart</div>
+      <label for="cart-toggle" class="panel-close">Close ✕</label>
+    </div>
+    <div class="cart-empty">Your cart is empty<br><small style="font-size:13px;opacity:.6;font-family:Montserrat,sans-serif;font-style:normal;">Discover our collections below</small></div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-family:Montserrat,sans-serif;font-size:11px;color:var(--text)">Subtotal</span>
+      <span>₹0</span>
+    </div>
+    <a href="#" class="btn-primary" style="display:block;text-align:center;width:100%">Proceed to Checkout</a>
+    <p style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);text-align:center;margin-top:14px;opacity:.6">Free shipping · Insured delivery</p>
+  </div>
+</div>
+
+<!-- ==================== MOBILE NAV ==================== -->
+<label for="menu-toggle" class="mobile-overlay"></label>
+<nav class="mobile-nav">
+  <label for="menu-toggle" class="mobile-nav-close">Close ✕</label>
+  <a href="#collections">Collections</a>
+  <a href="#products">Jewellery</a>
+  <a href="#about">Our Story</a>
+  <a href="#contact">Bespoke</a>
+  <a href="#" style="margin-top:24px;color:var(--gold)">Book Consultation</a>
+</nav>
+
+<!-- ==================== PRODUCT MODALS ==================== -->
+
+<!-- Modal 1: Éclat Solitaire -->
+<label for="modal-1">
+  <div class="modal-backdrop" id="modal-view-1">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-img" style="background:linear-gradient(145deg,#1C1810,#3A2E1A,#1C1810)">
+        <label for="modal-1" class="modal-close-label">✕</label>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <svg width="140" height="160" viewBox="0 0 90 100" fill="none">
+            <polygon points="45,8 80,36 45,92 10,36" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="1.2"/>
+            <polygon points="45,8 80,36 45,55 10,36" fill="rgba(201,168,76,0.35)" stroke="#C9A84C" stroke-width="0.8"/>
+            <circle cx="45" cy="8" r="3" fill="#C9A84C"/>
+            <line x1="10" y1="36" x2="80" y2="36" stroke="rgba(201,168,76,0.4)" stroke-width="0.7"/>
+            <line x1="45" y1="8" x2="45" y2="92" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <div style="position:absolute;bottom:20px;left:20px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)">GIA Certified · D VS1</div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-tag">Rings · Solitaire</div>
+        <div class="modal-name">Éclat Solitaire</div>
+        <div class="modal-price"><s>₹1,20,000</s> ₹95,000</div>
+        <p class="modal-desc">A timeless round brilliant diamond set in 18k white gold. The four-claw setting allows maximum light to pass through, revealing the stone's exceptional fire and scintillation.</p>
+        <ul class="modal-specs">
+          <li><strong>Metal</strong> 18k White Gold</li>
+          <li><strong>Stone</strong> Round Brilliant Diamond, 0.75ct</li>
+          <li><strong>Colour</strong> D (Exceptional White)</li>
+          <li><strong>Clarity</strong> VS1</li>
+          <li><strong>Certification</strong> GIA Certified</li>
+        </ul>
+        <div class="modal-size-label">Ring Size</div>
+        <div class="size-options">
+          <label class="size-radio" for="size-1-5"><input type="radio" name="size-1" id="size-1-5"> </label>
+          <label for="size-1-5" class="size-btn">5</label>
+          <label for="size-1-55" class="size-btn">5.5</label>
+          <label for="size-1-6" class="size-btn">6</label>
+          <label for="size-1-65" class="size-btn">6.5</label>
+          <label for="size-1-7" class="size-btn">7</label>
+        </div>
+        <a href="#toast-added" class="btn-primary" style="display:block;text-align:center;width:100%">Add to Cart</a>
+        <details style="margin-top:20px">
+          <summary>Delivery & Returns</summary>
+          <p>Complimentary insured shipping. Returns accepted within 30 days in original condition.</p>
+        </details>
+        <details>
+          <summary>Care Instructions</summary>
+          <p>Clean with a soft brush and mild soapy water. Avoid exposure to harsh chemicals and ultrasonic cleaners.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</label>
+
+<!-- Modal 2: Ciel Drop -->
+<label for="modal-2">
+  <div class="modal-backdrop" id="modal-view-2">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-img" style="background:linear-gradient(145deg,#181A1C,#2A303A,#181A1C)">
+        <label for="modal-2" class="modal-close-label">✕</label>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <svg width="120" height="140" viewBox="0 0 90 100" fill="none">
+            <ellipse cx="45" cy="48" rx="30" ry="38" fill="rgba(120,160,255,0.15)" stroke="rgba(120,160,255,0.9)" stroke-width="1.2"/>
+            <ellipse cx="45" cy="48" rx="18" ry="24" fill="rgba(120,160,255,0.2)" stroke="rgba(120,160,255,0.6)" stroke-width="0.7"/>
+            <line x1="15" y1="48" x2="75" y2="48" stroke="rgba(120,160,255,0.3)" stroke-width="0.5"/>
+            <line x1="45" y1="10" x2="45" y2="86" stroke="rgba(120,160,255,0.3)" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <div style="position:absolute;bottom:20px;left:20px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(120,160,255,0.8)">Sri Lankan Sapphire · 1.2ct</div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-tag">Earrings · Drop</div>
+        <div class="modal-name">Ciel Drop</div>
+        <div class="modal-price">₹72,000</div>
+        <p class="modal-desc">Oval blue sapphires suspended in a delicate 18k yellow gold setting. The colour of a clear Parisian sky, captured in gemstone form. Sold as a pair.</p>
+        <ul class="modal-specs">
+          <li><strong>Metal</strong> 18k Yellow Gold</li>
+          <li><strong>Stone</strong> Blue Sapphire (pair), 1.2ct total</li>
+          <li><strong>Origin</strong> Sri Lanka</li>
+          <li><strong>Length</strong> 28mm drop</li>
+        </ul>
+        <a href="#toast-added" class="btn-primary" style="display:block;text-align:center;width:100%;margin-top:24px">Add to Cart</a>
+        <details style="margin-top:20px">
+          <summary>Delivery & Returns</summary>
+          <p>Complimentary insured shipping. Returns accepted within 30 days in original condition.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</label>
+
+<!-- Modal 3: Violette Pendant -->
+<label for="modal-3">
+  <div class="modal-backdrop" id="modal-view-3">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-img" style="background:linear-gradient(145deg,#1C181C,#30203A,#1C181C)">
+        <label for="modal-3" class="modal-close-label">✕</label>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <svg width="120" height="140" viewBox="0 0 90 100" fill="none">
+            <polygon points="45,10 72,28 72,58 45,90 18,58 18,28" fill="rgba(180,100,220,0.15)" stroke="rgba(180,100,220,0.9)" stroke-width="1.2"/>
+            <polygon points="45,10 72,28 45,50 18,28" fill="rgba(180,100,220,0.25)" stroke="rgba(180,100,220,0.5)" stroke-width="0.7"/>
+            <circle cx="45" cy="10" r="3" fill="rgba(180,100,220,0.9)"/>
+          </svg>
+        </div>
+        <div style="position:absolute;bottom:20px;left:20px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(180,100,220,0.8)">Amethyst · 18k Rose Gold</div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-tag">Necklace · Pendant</div>
+        <div class="modal-name">Violette Pendant</div>
+        <div class="modal-price">₹88,000</div>
+        <p class="modal-desc">A hexagonal amethyst pendant, hand-set in 18k rose gold with a pavé diamond border. The warm tones of the metal perfectly complement the deep violet of the stone.</p>
+        <ul class="modal-specs">
+          <li><strong>Metal</strong> 18k Rose Gold</li>
+          <li><strong>Stone</strong> Amethyst, 2.4ct + Diamond pavé</li>
+          <li><strong>Chain</strong> 45cm, adjustable to 42cm</li>
+        </ul>
+        <a href="#toast-added" class="btn-primary" style="display:block;text-align:center;width:100%;margin-top:24px">Add to Cart</a>
+        <details style="margin-top:20px">
+          <summary>Delivery & Returns</summary>
+          <p>Complimentary insured shipping. Returns accepted within 30 days in original condition.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</label>
+
+<!-- Modal 4: Jardin Bangle -->
+<label for="modal-4">
+  <div class="modal-backdrop" id="modal-view-4">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-img" style="background:linear-gradient(145deg,#181C18,#20301E,#181C18)">
+        <label for="modal-4" class="modal-close-label">✕</label>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <svg width="120" height="140" viewBox="0 0 90 100" fill="none">
+            <rect x="22" y="28" width="46" height="46" rx="4" fill="rgba(100,200,120,0.15)" stroke="rgba(100,200,120,0.9)" stroke-width="1.2" transform="rotate(10 45 50)"/>
+            <rect x="30" y="36" width="30" height="30" rx="2" fill="rgba(100,200,120,0.2)" stroke="rgba(100,200,120,0.5)" stroke-width="0.7" transform="rotate(10 45 50)"/>
+          </svg>
+        </div>
+        <div style="position:absolute;bottom:20px;left:20px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(100,200,120,0.8)">Tsavorite Garnet · 18k Gold</div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-tag">Bracelet · Bangle</div>
+        <div class="modal-name">Jardin Bangle</div>
+        <div class="modal-price">₹64,000</div>
+        <p class="modal-desc">A rigid bangle set with a row of vivid tsavorite garnets in an 18k yellow gold channel setting. The deep forest green evokes the lush gardens of Versailles.</p>
+        <ul class="modal-specs">
+          <li><strong>Metal</strong> 18k Yellow Gold</li>
+          <li><strong>Stones</strong> Tsavorite Garnets, 3.2ct total</li>
+          <li><strong>Inner Diameter</strong> 58mm (standard)</li>
+          <li><strong>Width</strong> 6mm</li>
+        </ul>
+        <a href="#toast-added" class="btn-primary" style="display:block;text-align:center;width:100%;margin-top:24px">Add to Cart</a>
+        <details style="margin-top:20px">
+          <summary>Delivery & Returns</summary>
+          <p>Complimentary insured shipping. Returns accepted within 30 days in original condition.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</label>
+
+<!-- ==================== NAV ==================== -->
+<nav>
+  <a href="#" class="nav-logo">LUMI<span>È</span>RE</a>
+  <ul class="nav-links">
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#products">Jewellery</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#contact">Bespoke</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="signin.html" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text)'">Sign In</a>
+    <label for="search-toggle" class="search-label">
+      <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Search
+    </label>
+    <label for="wishlist-toggle" class="wishlist-label">Wishlist</label>
+    <label for="cart-toggle" class="cart-label">Cart (0)</label>
+    <label for="menu-toggle" class="menu-hamburger">
+      <span></span><span></span><span></span>
+    </label>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">New Collection 2025</div>
+    <h1 class="hero-title">Crafted for<br>the <em>Eternal</em><br>Moment</h1>
+    <p class="hero-sub">Each piece from Lumière is hand-finished by master artisans in Paris, using only conflict-free stones and ethically sourced metals.</p>
+    <div class="hero-cta">
+      <a href="#collections" class="btn-primary">Explore Collections</a>
+      <a href="#products" class="btn-ghost">View All Pieces</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-bg"></div>
+    <div class="hero-ornament">
+      <div class="ornament-ring"></div>
+      <div class="ornament-ring"></div>
+      <div class="ornament-ring"></div>
+      <svg class="diamond-icon" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="60,10 100,45 60,110 20,45" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <polygon points="60,10 100,45 60,60 20,45" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="0.5"/>
+        <polygon points="60,60 100,45 60,110" fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="0.5"/>
+        <polygon points="60,60 20,45 60,110" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.5"/>
+        <line x1="60" y1="10" x2="60" y2="110" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+        <line x1="20" y1="45" x2="100" y2="45" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+      </svg>
+    </div>
+    <div class="hero-badge">
+      <p>Certified pieces</p>
+      <strong>2,400+</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MARQUEE ==================== -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Fine Jewellery</span><span class="sep">◆</span>
+    <span>Handcrafted in Paris</span><span class="sep">◆</span>
+    <span>Ethically Sourced</span><span class="sep">◆</span>
+    <span>Lifetime Warranty</span><span class="sep">◆</span>
+    <span>Bespoke Commissions</span><span class="sep">◆</span>
+    <span>GIA Certified Diamonds</span><span class="sep">◆</span>
+    <span>Free Engraving</span><span class="sep">◆</span>
+    <span>Fine Jewellery</span><span class="sep">◆</span>
+    <span>Handcrafted in Paris</span><span class="sep">◆</span>
+    <span>Ethically Sourced</span><span class="sep">◆</span>
+    <span>Lifetime Warranty</span><span class="sep">◆</span>
+    <span>Bespoke Commissions</span><span class="sep">◆</span>
+    <span>GIA Certified Diamonds</span><span class="sep">◆</span>
+    <span>Free Engraving</span><span class="sep">◆</span>
+  </div>
+</div>
+
+<!-- ==================== COLLECTIONS ==================== -->
+<section class="section" id="collections">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-label">Curated</div>
+      <h2 class="section-title">Our <em>Collections</em></h2>
+    </div>
+    <a href="#products" class="btn-ghost">View all collections</a>
+  </div>
+  <div class="collection-grid fade-up">
+    <div class="col-card">
+      <div class="col-card-bg c1"></div>
+      <div class="col-card-gem">
+        <svg width="160" height="180" viewBox="0 0 160 180" fill="none">
+          <polygon points="80,20 140,70 80,160 20,70" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="1.2"/>
+          <polygon points="80,20 140,70 80,90 20,70" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="0.8"/>
+          <line x1="80" y1="20" x2="80" y2="160" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
+          <line x1="20" y1="70" x2="140" y2="70" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
+          <circle cx="80" cy="20" r="3" fill="#C9A84C"/>
+        </svg>
+      </div>
+      <div class="col-card-overlay"><a href="#products" class="col-overlay-btn">Explore →</a></div>
+      <div class="col-card-content">
+        <div class="col-card-tag">Signature</div>
+        <div class="col-card-name">Solitaire<br>Diamond</div>
+        <div class="col-card-price">From ₹85,000</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-card-bg c2"></div>
+      <div class="col-card-gem" style="transform:translate(-50%,-55%);opacity:.5">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="32" fill="rgba(100,160,255,0.1)" stroke="rgba(100,160,255,0.6)" stroke-width="1"/>
+          <circle cx="40" cy="40" r="20" fill="rgba(100,160,255,0.08)" stroke="rgba(100,160,255,0.4)" stroke-width="0.5"/>
+          <line x1="8" y1="40" x2="72" y2="40" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
+          <line x1="40" y1="8" x2="40" y2="72" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
+        </svg>
+      </div>
+      <div class="col-card-overlay"><a href="#products" class="col-overlay-btn">Explore →</a></div>
+      <div class="col-card-content">
+        <div class="col-card-tag">Sapphire</div>
+        <div class="col-card-name">Blue Bloom</div>
+        <div class="col-card-price">From ₹48,000</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-card-bg c3"></div>
+      <div class="col-card-gem" style="transform:translate(-50%,-55%);opacity:.5">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <polygon points="40,8 72,30 72,50 40,72 8,50 8,30" fill="rgba(80,200,100,0.1)" stroke="rgba(80,200,100,0.6)" stroke-width="1"/>
+          <polygon points="40,8 72,30 40,40 8,30" fill="rgba(80,200,100,0.15)" stroke="rgba(80,200,100,0.3)" stroke-width="0.5"/>
+        </svg>
+      </div>
+      <div class="col-card-overlay"><a href="#products" class="col-overlay-btn">Explore →</a></div>
+      <div class="col-card-content">
+        <div class="col-card-tag">Emerald</div>
+        <div class="col-card-name">Verdant</div>
+        <div class="col-card-price">From ₹62,000</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-card-bg c4"></div>
+      <div class="col-card-gem" style="transform:translate(-50%,-55%);opacity:.5">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <ellipse cx="40" cy="40" rx="28" ry="18" fill="rgba(220,80,80,0.1)" stroke="rgba(220,80,80,0.6)" stroke-width="1"/>
+          <line x1="12" y1="40" x2="68" y2="40" stroke="rgba(220,80,80,0.3)" stroke-width="0.5"/>
+          <ellipse cx="40" cy="40" rx="10" ry="6" fill="rgba(220,80,80,0.15)" stroke="rgba(220,80,80,0.4)" stroke-width="0.5"/>
+        </svg>
+      </div>
+      <div class="col-card-overlay"><a href="#products" class="col-overlay-btn">Explore →</a></div>
+      <div class="col-card-content">
+        <div class="col-card-tag">Ruby</div>
+        <div class="col-card-name">Rouge Royale</div>
+        <div class="col-card-price">From ₹55,000</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <div class="col-card-bg c5"></div>
+      <div class="col-card-gem" style="transform:translate(-50%,-55%);opacity:.5">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <rect x="24" y="24" width="32" height="32" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.6)" stroke-width="1" transform="rotate(45 40 40)"/>
+          <rect x="32" y="32" width="16" height="16" fill="rgba(201,168,76,0.15)" stroke="rgba(201,168,76,0.4)" stroke-width="0.5" transform="rotate(45 40 40)"/>
+        </svg>
+      </div>
+      <div class="col-card-overlay"><a href="#products" class="col-overlay-btn">Explore →</a></div>
+      <div class="col-card-content">
+        <div class="col-card-tag">Gold</div>
+        <div class="col-card-name">18k Bands</div>
+        <div class="col-card-price">From ₹32,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRODUCTS ==================== -->
+<section class="section" id="products" style="background:#F5F0E8;">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-label">Featured</div>
+      <h2 class="section-title">New <em>Arrivals</em></h2>
+    </div>
+    <a href="#" class="btn-ghost">Shop all</a>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="filter-row fade-up">
+    <label for="tab-rings" class="filter-btn">All Pieces</label>
+    <label for="tab-necklaces" class="filter-btn">Necklaces</label>
+    <label for="tab-earrings" class="filter-btn">Earrings</label>
+    <label for="tab-bracelets" class="filter-btn">Bracelets</label>
+  </div>
+
+  <div class="products-grid fade-up">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-bg p1"></div>
+        <div class="product-gem-wrap">
+          <svg width="90" height="100" viewBox="0 0 90 100" fill="none">
+            <polygon points="45,8 80,36 45,92 10,36" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
+            <polygon points="45,8 80,36 45,55 10,36" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="0.7"/>
+            <circle cx="45" cy="8" r="2.5" fill="#C9A84C"/>
+          </svg>
+        </div>
+        <label for="modal-1" class="product-quick">Quick View</label>
+        <label class="product-wish">
+          <input type="checkbox"> <span class="wish-icon">♡</span>
+        </label>
+      </div>
+      <div class="product-tag">Rings</div>
+      <div class="product-name">Éclat Solitaire</div>
+      <div class="product-price"><s>₹1,20,000</s> ₹95,000</div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-bg p2"></div>
+        <div class="product-gem-wrap">
+          <svg width="90" height="100" viewBox="0 0 90 100" fill="none">
+            <ellipse cx="45" cy="48" rx="30" ry="38" fill="rgba(120,160,255,0.1)" stroke="rgba(120,160,255,0.7)" stroke-width="1"/>
+            <ellipse cx="45" cy="48" rx="18" ry="24" fill="rgba(120,160,255,0.15)" stroke="rgba(120,160,255,0.5)" stroke-width="0.5"/>
+            <line x1="15" y1="48" x2="75" y2="48" stroke="rgba(120,160,255,0.25)" stroke-width="0.5"/>
+            <line x1="45" y1="10" x2="45" y2="86" stroke="rgba(120,160,255,0.25)" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <label for="modal-2" class="product-quick">Quick View</label>
+        <label class="product-wish">
+          <input type="checkbox"> <span class="wish-icon">♡</span>
+        </label>
+      </div>
+      <div class="product-tag">Earrings</div>
+      <div class="product-name">Ciel Drop</div>
+      <div class="product-price">₹72,000</div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-bg p3"></div>
+        <div class="product-gem-wrap">
+          <svg width="90" height="100" viewBox="0 0 90 100" fill="none">
+            <polygon points="45,10 72,28 72,58 45,90 18,58 18,28" fill="rgba(180,100,220,0.1)" stroke="rgba(180,100,220,0.7)" stroke-width="1"/>
+            <polygon points="45,10 72,28 45,50 18,28" fill="rgba(180,100,220,0.2)" stroke="rgba(180,100,220,0.4)" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <label for="modal-3" class="product-quick">Quick View</label>
+        <label class="product-wish">
+          <input type="checkbox"> <span class="wish-icon">♡</span>
+        </label>
+      </div>
+      <div class="product-tag">Necklace</div>
+      <div class="product-name">Violette Pendant</div>
+      <div class="product-price">₹88,000</div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-bg p4"></div>
+        <div class="product-gem-wrap">
+          <svg width="90" height="100" viewBox="0 0 90 100" fill="none">
+            <rect x="22" y="28" width="46" height="46" rx="4" fill="rgba(100,200,120,0.1)" stroke="rgba(100,200,120,0.7)" stroke-width="1" transform="rotate(10 45 50)"/>
+            <rect x="30" y="36" width="30" height="30" rx="2" fill="rgba(100,200,120,0.15)" stroke="rgba(100,200,120,0.4)" stroke-width="0.5" transform="rotate(10 45 50)"/>
+          </svg>
+        </div>
+        <label for="modal-4" class="product-quick">Quick View</label>
+        <label class="product-wish">
+          <input type="checkbox"> <span class="wish-icon">♡</span>
+        </label>
+      </div>
+      <div class="product-tag">Bracelet</div>
+      <div class="product-name">Jardin Bangle</div>
+      <div class="product-price">₹64,000</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== BANNER ==================== -->
+<section class="banner" id="about">
+  <div class="banner-text fade-up">
+    <div class="banner-label">Our Promise</div>
+    <h2 class="banner-title">Over a Century of<br><em>Artisan Mastery</em></h2>
+    <p class="banner-desc">Founded in 1902, Lumière has built its legacy on an unwavering commitment to craftsmanship. Every ring, necklace, and bracelet we create is the product of generations of knowledge passed down in our Parisian ateliers.</p>
+    <a href="#contact" class="btn-gold">Discover our story</a>
+  </div>
+  <div class="banner-stats fade-up">
+    <div class="stat-box">
+      <div class="stat-num">120+</div>
+      <div class="stat-label">Years of Heritage</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">48</div>
+      <div class="stat-label">Master Artisans</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">12k+</div>
+      <div class="stat-label">Pieces Created</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Ethically Sourced</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="section testimonials">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">Words from our<br><em>Clients</em></h2>
+    </div>
+  </div>
+  <div class="testimonials-grid fade-up">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The ring was beyond anything I had imagined. When she saw it, she cried. Lumière doesn't just sell jewellery — they craft memories."</p>
+      <div class="testi-author">Arjun Mehta</div>
+      <div class="testi-location">Mumbai, India</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The bespoke process was seamless. They listened to every detail and translated my vision into a piece I will wear every day for the rest of my life."</p>
+      <div class="testi-author">Priya Sharma</div>
+      <div class="testi-location">Delhi, India</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"I've purchased from many fine jewellers, but Lumière's quality of finish and ethical sourcing makes them truly extraordinary. Worth every rupee."</p>
+      <div class="testi-author">Kavya Reddy</div>
+      <div class="testi-location">Hyderabad, India</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BESPOKE / CONTACT ==================== -->
+<section class="section" id="contact" style="background:var(--dark);padding:100px 80px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="fade-up">
+    <div>
+      <div class="section-label" style="color:var(--gold)">Bespoke</div>
+      <h2 class="section-title" style="color:#fff">Commission a<br><em>Piece for Life</em></h2>
+      <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.9;margin-top:24px;margin-bottom:40px;">Every great love story deserves a singular object. Work directly with our master jewellers to create a piece that is entirely, unmistakably yours.</p>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:12px;margin-top:2px">01</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:6px">Initial Consultation</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7">Share your vision, budget, and timeline with our design team.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:12px;margin-top:2px">02</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:6px">Design & Rendering</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7">Receive hand-drawn sketches and 3D renderings for approval.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:12px;margin-top:2px">03</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:6px">Handcrafted Creation</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7">Your piece is handcrafted over 6–10 weeks by a dedicated artisan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form style="display:flex;flex-direction:column;gap:16px;" onsubmit="return false">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <label style="font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">First Name</label>
+            <input type="text" placeholder="Arjun" required style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);padding:14px 16px;font-family:Montserrat,sans-serif;font-size:12px;color:#fff;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(201,168,76,0.2)'">
+          </div>
+          <div>
+            <label style="font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">Last Name</label>
+            <input type="text" placeholder="Mehta" required style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);padding:14px 16px;font-family:Montserrat,sans-serif;font-size:12px;color:#fff;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(201,168,76,0.2)'">
+          </div>
+        </div>
+        <div>
+          <label style="font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">Email</label>
+          <input type="email" placeholder="your@email.com" required style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);padding:14px 16px;font-family:Montserrat,sans-serif;font-size:12px;color:#fff;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(201,168,76,0.2)'">
+        </div>
+        <div>
+          <label style="font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">Piece Type</label>
+          <select style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);padding:14px 16px;font-family:Montserrat,sans-serif;font-size:12px;color:rgba(255,255,255,0.7);outline:none;appearance:none;cursor:pointer">
+            <option value="">Select a category</option>
+            <option>Engagement Ring</option>
+            <option>Wedding Band</option>
+            <option>Necklace</option>
+            <option>Earrings</option>
+            <option>Bracelet</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">Your Vision</label>
+          <textarea rows="4" placeholder="Describe the piece you have in mind…" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);padding:14px 16px;font-family:Montserrat,sans-serif;font-size:12px;color:#fff;outline:none;resize:vertical;line-height:1.7" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(201,168,76,0.2)'"></textarea>
+        </div>
+        <button type="submit" class="btn-gold" style="border:none;font-family:Montserrat,sans-serif;cursor:pointer;width:100%;text-align:center">Begin My Commission</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NEWSLETTER ==================== -->
+<section class="newsletter">
+  <div class="section-label" style="justify-content:center;margin-bottom:16px">Exclusive Access</div>
+  <h2 class="newsletter-title">Join the <em>Inner Circle</em></h2>
+  <p class="newsletter-sub">Be the first to preview new collections, private sales, and invitations to our atelier events.</p>
+  <form class="newsletter-form" onsubmit="return false">
+    <input type="email" placeholder="Your email address" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+    <button type="submit">Subscribe</button>
+  </form>
+  <p style="font-size:10px;letter-spacing:.1em;color:rgba(92,77,58,0.4);margin-top:16px">No spam, ever. Unsubscribe anytime.</p>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-logo">LUMI<span>È</span>RE</div>
+      <p class="footer-desc">Fine jewellery crafted with intention. Every piece is a testament to the art of the possible, shaped by masters who honour the old ways.</p>
+      <div style="margin-top:28px;display:flex;flex-direction:column;gap:8px">
+        <a href="mailto:atelier@lumiere.com" style="font-size:11px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:.08em;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">atelier@lumiere.com</a>
+        <a href="tel:+911234567890" style="font-size:11px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:.08em;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">+91 123 456 7890</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Jewellery</div>
+      <ul class="footer-links">
+        <li><a href="#products">Rings</a></li>
+        <li><a href="#products">Necklaces</a></li>
+        <li><a href="#products">Earrings</a></li>
+        <li><a href="#products">Bracelets</a></li>
+        <li><a href="#contact">Bespoke</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#about">Artisans</a></li>
+        <li><a href="#about">Sustainability</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Support</div>
+      <ul class="footer-links">
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Sizing Guide</a></li>
+        <li><a href="#">Care & Repair</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+      <div style="margin-top:28px">
+        <div class="footer-heading">Certifications</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,0.3)">◈ GIA Certified</span>
+          <span style="font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,0.3)">◈ Kimberley Process</span>
+          <span style="font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,0.3)">◈ RJC Member</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Lumière Fine Jewellery. All rights reserved.</p>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<a href="#scroll-top-anchor" class="scroll-top" title="Back to top">↑</a>
+
+</body>
+</html>
